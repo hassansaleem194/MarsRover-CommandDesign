@@ -10,4 +10,12 @@ public class MarsRoverShould {
     turn_right_when_passed_one_right() {
         assertEquals( "0:0:E", new MarsRover().execute("R"));
     }
+
+    @Test
+    public void
+    turn_right_twice_when_passed_two_rights() {
+        assertEquals( "0:0:S", new MarsRover().execute("RR"));
+    }
+
+
 }
