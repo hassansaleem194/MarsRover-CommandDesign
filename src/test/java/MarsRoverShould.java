@@ -17,5 +17,11 @@ public class MarsRoverShould {
         assertEquals( "0:0:S", new MarsRover().execute("RR"));
     }
 
+    @Test
+    public void
+    turn_right_thrice_when_passed_three_rights() {
+        assertEquals( "0:0:W", new MarsRover().execute("RRR"));
+    }
+
 
 }
