@@ -20,7 +20,8 @@ public class MarsRoverShould {
 //            rotate Mars Rover Right
         "R, 0:0:E",
         "RR, 0:0:S",
-        "RRR , 0:0:W",
+        "RRR, 0:0:W",
+            "RRRR, 0:0:N"
     })
     void turn_when_passed_rotation_command (String inputCommand, String expectedOutput) {
         String actualResult = marsRover.execute(inputCommand);
