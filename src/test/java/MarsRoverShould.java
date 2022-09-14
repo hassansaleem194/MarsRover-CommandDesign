@@ -1,26 +1,30 @@
 import org.codurance.MarsRover;
-import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MarsRoverShould {
 
-    @Test
-    public void
-    turn_right_when_passed_one_right() {
-        assertEquals( "0:0:E", new MarsRover().execute("R"));
+    MarsRover marsRover;
+    @BeforeEach
+    void setup() {
+        marsRover = new MarsRover();
     }
 
-    @Test
-    public void
-    turn_right_twice_when_passed_two_rights() {
-        assertEquals( "0:0:S", new MarsRover().execute("RR"));
-    }
-
-    @Test
-    public void
-    turn_right_thrice_when_passed_three_rights() {
-        assertEquals( "0:0:W", new MarsRover().execute("RRR"));
+    @ParameterizedTest
+    @CsvSource({
+//            rotate Mars Rover Right
+        "R, 0:0:E",
+        "RR, 0:0:S",
+        "RRR , 0:0:W",
+    })
+    void turn_when_passed_rotation_command (String inputCommand, String expectedOutput) {
+        String actualResult = marsRover.execute(inputCommand);
+        assertEquals(expectedOutput, actualResult);
     }
 
 
